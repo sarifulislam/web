@@ -30,7 +30,7 @@ function App() {
     });
   }, []);
 
-  useDocTitle("MLD | Molad e Konsult - Bespoke Web and Mobile Applications");
+  useDocTitle("SSI Tech Solution| Data Enginnering and Data Science Service solutions");
 
   return (
     <>
