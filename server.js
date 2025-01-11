@@ -24,6 +24,11 @@ app.post('/api/save-data', (req, res) => {
     res.status(200).json({ message: 'Data saved successfully!', filePath });
 });
 
+// GET endpoint for root path
+app.get('/', (req, res) => {
+    res.send('Welcome to the application!');
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

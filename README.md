@@ -40,6 +40,22 @@ The application includes several key components:
 - **Services**: Lists the services offered.
 - **Navbar**: Navigation bar for the application.
 
+## Deployment to Google Cloud Platform (GCP)
+
+To deploy the application to GCP, follow these steps:
+
+1. Build the application:
+   ```bash
+   npm run build
+   ```
+
+2. Deploy the application using the Google Cloud SDK:
+   ```bash
+   gcloud app deploy
+   ```
+
+3. Follow the prompts to complete the deployment process.
+
 ## Contributing
 Contributions are welcome! Please follow the standard GitHub workflow for contributing to this project.
 
