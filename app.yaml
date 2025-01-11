@@ -1,7 +1,27 @@
-runtime: nodejs22
-
+runtime: nodejs18
 env: standard
 
+instance_class: F2
+entrypoint: npm run start
+
 handlers:
+  # Serve the static files from the build folder
+  - url: /static
+    static_dir: build/static
+
+  # Serve the index.html file
+  - url: /
+    static_files: build/index.html
+    upload: build/index.html
+
+  # Catch-all for API requests to route to backend
+  - url: /api/.*
+    script: auto
+
+  # Catch-all for other requests (e.g., React routing)
   - url: /.*
     script: auto
+
+env_variables:
+  PORT: 8080
+  BUCKET_NAME: "ssi-tech-solution"  # Replace with your actual bucket name
