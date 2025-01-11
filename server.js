@@ -1,6 +1,7 @@
 const express = require('express');
 const xlsx = require('xlsx');
 const { Storage } = require('@google-cloud/storage');
+const multer = require('multer'); // Import multer
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -11,10 +12,14 @@ const bucket = storage.bucket(bucketName);
 
 // Middleware
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(multer().none()); // Middleware to handle multipart/form-data
 
 // Endpoint to save contact data
 app.post('/api/save-data', async (req, res) => {
     const { first_name, last_name, email, phone_number, message } = req.body;
+
+    // Log the received contact data
+    console.log('Received contact data:', { first_name, last_name, email, phone_number, message });
 
     // Create a new workbook and a new worksheet
     const wb = xlsx.utils.book_new();
