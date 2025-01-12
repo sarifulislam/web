@@ -3,12 +3,11 @@ import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
 import {useDocTitle} from '../components/CustomHook';
 import axios from 'axios';
-// import emailjs from 'emailjs-com';
 import Notiflix from 'notiflix';
 
 const DemoProduct = (props) => {
 
-    useDocTitle('MLD | Molad e Konsult - Demo our products')
+    useDocTitle('MLD | Molad e Konsult - Demo our services')
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -17,7 +16,6 @@ const DemoProduct = (props) => {
     const [message, setMessage] = useState('')
     const [demoProducts, setDemoProducts ] = useState([])
     const [errors, setErrors] = useState([])
-
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -30,7 +28,6 @@ const DemoProduct = (props) => {
         } else {
             setDemoProducts(demoProducts.filter( (e) => (e !== value )))
         }
-       
     }
     const clearErrors = () => {
         setErrors([])
@@ -56,23 +53,6 @@ const DemoProduct = (props) => {
         fData.append('message', message)
         fData.append('products', demoProducts)
 
-        // emailjs.sendForm('service_7uy4ojg', 'template_et9wvdg', e.target, 'user_uE0bSPGbhRTmAF3I2fd3s')
-        //   .then((result) => {
-        //       console.log(result.text);
-        //       Notiflix.Report.success(
-        //         'Success',
-        //         '"Thanks for sending a message, we\'ll be in touch soon."',
-        //         'Okay',
-        //         );
-        //   }, (error) => {
-        //       console.log(error.text);
-        //       Notiflix.Report.failure(
-        //         'An error occured',
-        //         'Please try sending the message again.',
-        //         'Okay',
-        //         );
-        //   });
-
         axios({
             method: "post",
             url: process.env.REACT_APP_DEMO_REQUEST_API,
@@ -85,7 +65,6 @@ const DemoProduct = (props) => {
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'send message';
             clearInput()
-            //handle success
             Notiflix.Report.success(
                 'Success',
                 response.data.message,
@@ -95,7 +74,6 @@ const DemoProduct = (props) => {
         .catch(function (error) {
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'send message';
-            //handle error
             const { response } = error;
             if(response.status === 500) {
                 Notiflix.Report.failure(
@@ -107,7 +85,6 @@ const DemoProduct = (props) => {
             if(response.data.errors !== null) {
                 setErrors(response.data.errors)
             }
-            
         });
     }
     return (
@@ -120,7 +97,7 @@ const DemoProduct = (props) => {
                     <form onSubmit={sendEmail} id="demoProductForm">
                         <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
                             <div className="flex">
-                                <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Demo our products</h1>
+                                <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Demo our services</h1>
                             </div>
                             <div className="flex items-center my-4">
                                 <input 
@@ -133,7 +110,6 @@ const DemoProduct = (props) => {
                                 <label htmlFor="checkbox-1" className="ml-3 text-lg font-medium text-gray-900">BlockChain ETL</label>
                             </div>
                             
-                              
                             {errors && 
                                 <p className="text-red-500 text-sm">{errors.products}</p>
                             }
@@ -240,12 +216,11 @@ const DemoProduct = (props) => {
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Call Us</h2>
                                     <p className="text-gray-400">Whatsapp: +91 9800435692</p>
-                                
+                                    
                                     <div className='mt-5'>
                                         <h2 className="text-2xl">Send an E-mail</h2>
                                         <p className="text-gray-400">ssitechsolutions533@gmail.com</p>
                                     </div>
-                            
                                 </div>
                             </div>
                             
@@ -263,8 +238,6 @@ const DemoProduct = (props) => {
             </div>
             <Footer />
         </>
-
-
     )
 }
 
