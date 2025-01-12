@@ -7,7 +7,7 @@ import Notiflix from 'notiflix';
 
 const DemoProduct = (props) => {
 
-    useDocTitle('MLD | Molad e Konsult - Demo our services')
+    useDocTitle('SSI Tech solution ')
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
@@ -105,9 +105,9 @@ const DemoProduct = (props) => {
                                     aria-describedby="checkbox-1" 
                                     type="checkbox" 
                                     className="bg-gray-50 border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded" 
-                                    value="business_management_system" onChange={handleChange}
+                                    value="aws_data_engineering_gcp" onChange={handleChange}
                                  />
-                                <label htmlFor="checkbox-1" className="ml-3 text-lg font-medium text-gray-900">BlockChain ETL</label>
+                                <label htmlFor="checkbox-1" className="ml-3 text-lg font-medium text-gray-900">AWS, Data Engineering, and GCP Services</label>
                             </div>
                             
                             {errors && 
