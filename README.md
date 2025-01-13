@@ -6,8 +6,8 @@ This is the official website for SSI Tech Solution, a technology consulting firm
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/ssitechsolution.git
-   cd ssitechsolution
+   git clone https://github.com/sarifulislam/web.git
+   cd web
    ```
 
 2. Install dependencies:
