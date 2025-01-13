@@ -1,63 +1,50 @@
+# SSI Tech Solution
 
-
-## Description
-MLD is a React-based web application designed to provide a seamless user experience. It incorporates various features and components to enhance functionality and interactivity.
-
-## Homepage
-Visit the live application at [MLD Homepage](https://mld.ng/).
+This is the official website for SSI Tech Solution, a technology consulting firm.
 
 ## Installation
-To set up the project locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd mld
+   git clone https://github.com/your-repo/ssitechsolution.git
+   cd ssitechsolution
    ```
 
-2. Install the dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-## Usage
-To start the development server, run:
-```bash
-npm start
-```
-This will launch the application in your default web browser.
+3. Required packages:
+   - express: Web framework for Node.js
+   - xlsx: Library to read and write Excel files
+   - @google-cloud/storage: Client library for Google Cloud Storage
+   - multer: Middleware for handling multipart/form-data
 
-## Components
-The application includes several key components:
-- **Clients**: Displays client information.
-- **Cta**: Call-to-action section.
-- **CustomHook**: Custom React hooks for various functionalities.
-- **Footer**: Footer section of the application.
-- **Hero**: Hero section with a prominent message.
-- **Intro**: Introduction section.
-- **Portfolio**: Displays portfolio items.
-- **ScrollToTop**: Button to scroll back to the top of the page.
-- **Services**: Lists the services offered.
-- **Navbar**: Navigation bar for the application.
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-## Deployment to Google Cloud Platform (GCP)
-
-To deploy the application to GCP, follow these steps:
-
-1. Build the application:
+5. For production build:
    ```bash
    npm run build
    ```
 
-2. Deploy the application using the Google Cloud SDK:
+6. Deploy to Google Cloud:
    ```bash
-   gcloud app deploy
+   npm run deploy
    ```
 
-3. Follow the prompts to complete the deployment process.
+## Configuration
+
+- Set up Google Cloud Storage credentials in your environment variables.
+- Configure the bucket name in `server.js` if needed.
 
 ## Contributing
-Contributions are welcome! Please follow the standard GitHub workflow for contributing to this project.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-This project is licensed under the MIT License.
+
+[MIT](https://choosealicense.com/licenses/mit/)
