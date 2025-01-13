@@ -23,5 +23,5 @@ handlers:
     script: auto
 
 env_variables:
-  PORT: 8080
+  PORT: 5000
   BUCKET_NAME: "ssi-tech-solution"  # Replace with your actual bucket name

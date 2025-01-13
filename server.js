@@ -1,44 +1,58 @@
 const express = require('express');
 const xlsx = require('xlsx');
 const { Storage } = require('@google-cloud/storage');
-const multer = require('multer'); // Import multer
+const multer = require('multer');
+const cors = require('cors'); // Import the CORS package
 const app = express();
 const PORT = process.env.PORT || 5000;
+const bucketName = process.env.BUCKET_NAME; // Fetch the bucket name from env variable
+
+// Check if required environment variables are set
+if (!bucketName) {
+    console.error("Error: BUCKET_NAME environment variable is not set.");
+    process.exit(1); // Exit the application if the bucket name is missing
+}
 
 // Initialize Cloud Storage
 const storage = new Storage();
-const bucketName = 'ssi-tech-solution';  // Replace with your actual Cloud Storage bucket name
 const bucket = storage.bucket(bucketName);
 
-// Middleware
-app.use(express.json()); // Middleware to parse JSON bodies
-app.use(multer().none()); // Middleware to handle multipart/form-data
+// Configure CORS to allow requests from both domains
+app.use(cors({
+    origin: ['https://ssitechsolution.tech', 'https://mywebsite-hosting.ue.r.appspot.com'],
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+// Middleware to parse JSON bodies and handle multipart/form-data
+app.use(express.json());
+app.use(multer().none());
 
 // Endpoint to save contact data
 app.post('/api/save-data', async (req, res) => {
     const { first_name, last_name, email, phone_number, message } = req.body;
 
-    // Log the received contact data
+    // Validate input data
+    if (!first_name || !last_name || !email || !phone_number || !message) {
+        return res.status(400).json({ message: 'All fields are required.' });
+    }
+
     console.log('Received contact data:', { first_name, last_name, email, phone_number, message });
 
-    // Create a new workbook and a new worksheet
+    // Create an Excel workbook and worksheet
     const wb = xlsx.utils.book_new();
     const ws = xlsx.utils.json_to_sheet([{ first_name, last_name, email, phone_number, message }]);
-
-    // Append the worksheet to the workbook
     xlsx.utils.book_append_sheet(wb, ws, 'Contact Data');
 
-    // Write the workbook to a buffer
+    // Convert workbook to buffer
     const buffer = xlsx.write(wb, { bookType: 'xlsx', type: 'buffer' });
 
-    // Define a file name and path
+    // Define a file name
     const fileName = `ContactData-${Date.now()}.xlsx`;
-
-    // Create a Cloud Storage file reference
     const file = bucket.file(fileName);
 
-    // Upload the buffer to Google Cloud Storage
     try {
+        // Upload the file to Cloud Storage
         await file.save(buffer, {
             contentType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         });
@@ -46,11 +60,11 @@ app.post('/api/save-data', async (req, res) => {
         res.status(200).json({ message: 'Data saved successfully!', fileUrl });
     } catch (error) {
         console.error('Error uploading file to Cloud Storage:', error);
-        res.status(500).json({ message: 'Error saving data', error: error.message });
+        res.status(500).json({ message: 'Failed to save data. Please try again.', error: error.message });
     }
 });
 
-// GET endpoint for root path
+// Root endpoint
 app.get('/', (req, res) => {
     res.send('Welcome to the application!');
 });
@@ -58,4 +72,5 @@ app.get('/', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+    console.log(`Using bucket: ${bucketName}`);
 });
