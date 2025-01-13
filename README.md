@@ -6,8 +6,8 @@ This is the official website for SSI Tech Solution, a technology consulting firm
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/ssitechsolution.git
-   cd ssitechsolution
+   git clone https://github.com/sarifulislam/web.git
+   cd web
    ```
 
 2. Install dependencies:
@@ -20,6 +20,9 @@ This is the official website for SSI Tech Solution, a technology consulting firm
    - xlsx: Library to read and write Excel files
    - @google-cloud/storage: Client library for Google Cloud Storage
    - multer: Middleware for handling multipart/form-data
+     ```
+     npm install express xlsx @google-cloud/storage multer
+     ```
 
 4. Start the development server:
    ```bash
@@ -31,9 +34,9 @@ This is the official website for SSI Tech Solution, a technology consulting firm
    npm run build
    ```
 
-6. Deploy to Google Cloud:
+6. Deploy to Google Cloud App Engine:
    ```bash
-   npm run deploy
+   gcloud app deploy
    ```
 
 ## Configuration
