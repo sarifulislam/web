@@ -34,9 +34,9 @@ This is the official website for SSI Tech Solution, a technology consulting firm
    npm run build
    ```
 
-6. Deploy to Google Cloud:
+6. Deploy to Google Cloud App Engine:
    ```bash
-   gcloud run deploy
+   gcloud app deploy
    ```
 
 ## Configuration
