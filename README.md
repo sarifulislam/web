@@ -21,7 +21,7 @@ This is the official website for SSI Tech Solution, a technology consulting firm
    - @google-cloud/storage: Client library for Google Cloud Storage
    - multer: Middleware for handling multipart/form-data
      ```
-     npm install express xlsx @google-cloud/storage multer
+     npm install express xlsx cors @google-cloud/storage multer
      ```
 
 4. Start the development server:
