@@ -1,6 +1,6 @@
 import React from 'react';
-import bigDataImg from '../images/bigdata.svg'; 
-import aiImg from '../images/ai.svg';
+import bigDataImg from '../images/blockchain.svg'; 
+import aiImg from '../images/blockchain.svg';
 import blockchainImg from '../images/blockchain.svg';
 
 const Services = () => {

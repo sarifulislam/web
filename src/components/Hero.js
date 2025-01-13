@@ -5,34 +5,63 @@ import NavBar from '../components/Navbar/NavBar';
 const Hero = () => {
     return (
         <>
-            <div className="hero" id='hero'>
+            {/* Hero Section with NavBar */}
+            <div className="hero bg-gradient-to-r from-blue-800 to-blue-600 text-white py-16 px-8" id="hero">
                 <div>
                     <NavBar />
                 </div>
-                
-                <div className="m-auto overflow-hidden mx-4 mt-8 lg:mt-4 p-2 md:p-12 h-5/6" data-aos="zoom-in">
+                <div className="container mx-auto text-center" data-aos="fade-up">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                        Innovating the Future of Big Data and Analytics
+                    </h1>
+                    <p className="text-lg md:text-xl font-medium mb-6">
+                        Transforming businesses with cutting-edge cloud solutions and 24/7 operational excellence.
+                    </p>
+                </div>
 
-                    <div id='hero' className="flex flex-col lg:flex-row py-8 justify-between text-center lg:text-left">
-                        <div className="lg:w-1/2 flex flex-col justify-center" data-aos="zoom-in" data-aos-delay="200">
-                            <h1 className="mb-5 md:text-5xl text-3xl font-bold text-blue-900">
-                                SSI Tech solution for your Big Data, AI and Blockchain needs
-                            </h1>
-                            <div className="text-xl font-semibold tracking-tight mb-5 text-gray-500">We are a team of highly motivated and skilled developers dedicated to delivering only the best solutions for your business with proper data service line.</div>
-                            <div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
-                                <Link to="/contact" className="text-white bg-blue-900 hover:bg-blue-800 inline-flex items-center justify-center w-full px-6 py-3 my-4 text-lg shadow-xl rounded-2xl sm:w-auto sm:mb-0">
-                                    Learn more
-                                    <svg className="w-4 h-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="flex lg:justify-end w-full lg:w-1/2" data-aos="fade-up" data-aos-delay="700">
-                            {/* <img alt="card img" className="rounded-t float-right duration-1000 w-full" src={heroImg} /> */}
-                        </div>
+                {/* Feature Cards Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                    <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                        <h2 className="text-xl md:text-2xl font-bold mb-2">AWS & GCP Expertise</h2>
+                        <p className="text-sm md:text-lg">
+                            Leverage the power of Amazon Web Services and Google Cloud Platform to build scalable, secure, and efficient big data solutions tailored to your needs.
+                        </p>
                     </div>
+                    <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="400">
+                        <h2 className="text-xl md:text-2xl font-bold mb-2">Comprehensive Solutions</h2>
+                        <p className="text-sm md:text-lg">
+                            From data pipelines to actionable insights, we manage your data lifecycle with expertise in PySpark, Hadoop, and Kafka.
+                        </p>
+                    </div>
+                    <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="600">
+                        <h2 className="text-xl md:text-2xl font-bold mb-2">24/7 Support</h2>
+                        <p className="text-sm md:text-lg">
+                            Uninterrupted operations with our round-the-clock team. Your data never sleeps, and neither do we.
+                        </p>
+                    </div>
+                    <div className="bg-white text-gray-800 p-6 rounded-lg shadow-lg" data-aos="zoom-in" data-aos-delay="800">
+                        <h2 className="text-xl md:text-2xl font-bold mb-2">Why Choose Us?</h2>
+                        <ul className="list-disc list-inside text-sm md:text-lg">
+                            <li>Expertise in advanced big data tools</li>
+                            <li>Tailored, scalable solutions</li>
+                            <li>Seamless integration with your systems</li>
+                            <li>Uncompromising quality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Call-to-Action Button */}
+                <div className="mt-12 text-center">
+                    <button
+                        className="bg-blue-500 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:bg-blue-600 transition duration-300"
+                        onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                    >
+                        Learn More
+                    </button>
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Hero;
