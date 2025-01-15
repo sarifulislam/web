@@ -43,6 +43,11 @@ This is the official website for SSI Tech Solution, a technology consulting firm
 
 - Set up Google Cloud Storage credentials in your environment variables.
 - Configure the bucket name in `server.js` if needed.
+- **Set the `BUCKET_NAME` environment variable**:
+  - In PowerShell:
+    ```bash
+    $env:BUCKET_NAME="your_bucket_name"
+    ```
 
 ## Contributing
 
