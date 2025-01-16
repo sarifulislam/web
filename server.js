@@ -4,8 +4,8 @@ const { Storage } = require('@google-cloud/storage');
 const multer = require('multer');
 const cors = require('cors'); // Import the CORS package
 const app = express();
-const PORT = process.env.PORT || 5000;
-const bucketName = process.env.BUCKET_NAME; // Fetch the bucket name from env variable
+const PORT = 5000;
+const bucketName = "backed_data"; 
 
 // Check if required environment variables are set
 if (!bucketName) {
@@ -19,7 +19,7 @@ const bucket = storage.bucket(bucketName);
 
 // Configure CORS to allow requests from both domains
 app.use(cors({
-    origin: ['https://ssitechsolution.tech', 'https://mywebsite-hosting.ue.r.appspot.com'],
+    origin: ['http://localhost:3000','https://ssitechsolution.tech', 'https://www.ssitechsolution.tech','https://mywebsite-hosting.ue.r.appspot.com'],
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));

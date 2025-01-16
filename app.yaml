@@ -5,23 +5,24 @@ instance_class: F2
 entrypoint: npm run start
 
 handlers:
-  # Serve the static files from the build folder
+  # Serve static files from the 'build/static' directory
   - url: /static
     static_dir: build/static
 
-  # Serve the index.html file
+  # Serve the index.html file for React frontend routing
   - url: /
     static_files: build/index.html
     upload: build/index.html
 
-  # Catch-all for API requests to route to backend
-  - url: /api/.*
+  # Catch-all for API requests routed to the backend
+  - url: /api/.*  
     script: auto
 
-  # Catch-all for other requests (e.g., React routing)
-  - url: /.*
+  # Catch-all for React frontend routing
+  - url: /.*  
     script: auto
 
 env_variables:
   PORT: 5000
   BUCKET_NAME: "ssi-tech-solution"  # Replace with your actual bucket name
+  REACT_APP_CONTACT_API: '["http://www.ssitechsolution.tech/api/save-data", "http://ssitechsolution/api/save-data"]'  # Backend API URL
