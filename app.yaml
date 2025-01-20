@@ -14,12 +14,25 @@ handlers:
     static_files: build/index.html
     upload: build/index.html
 
+  # Serve favicon, manifest, and robots.txt
+  - url: /favicon.ico
+    static_files: build/favicon.ico
+    upload: build/favicon.ico
+
+  - url: /manifest.json
+    static_files: build/manifest.json
+    upload: build/manifest.json
+
+  - url: /robots.txt
+    static_files: build/robots.txt
+    upload: build/robots.txt
+
   # Catch-all for API requests routed to the backend
-  - url: /api/.*  
+  - url: /api/.*
     script: auto
 
   # Catch-all for React frontend routing
-  - url: /.*  
+  - url: /.*
     script: auto
 
 env_variables:
