@@ -1,58 +1,43 @@
 # SSI Tech Solution
 
-This is the official website for SSI Tech Solution, a technology consulting firm.
+## Installation Instructions
 
-## Installation
-
-1. Clone the repository:
+1. **Clone the Repository**: 
    ```bash
-   git clone https://github.com/sarifulislam/web.git
-   cd web
+   git clone https://github.com/your-repo-url.git
+   cd your-repo-directory
    ```
 
-2. Install dependencies:
+2. **Install Node Version Manager (NVM)**: Follow the instructions on the [NVM GitHub page](https://github.com/nvm-sh/nvm#installing-and-updating) to install NVM.
+
+3. **Install Node.js**: 
+   ```bash
+   nvm install 18.20.0
+   nvm use 18.20.0
+   ```
+
+4. **Install Dependencies**: 
    ```bash
    npm install
    ```
 
-3. Required packages:
-   - express: Web framework for Node.js
-   - xlsx: Library to read and write Excel files
-   - @google-cloud/storage: Client library for Google Cloud Storage
-   - multer: Middleware for handling multipart/form-data
-     ```
-     npm install express xlsx cors @google-cloud/storage multer
-     ```
-
-4. Start the development server:
+5. **Start the Application**: 
    ```bash
    npm start
    ```
 
-5. For production build:
-   ```bash
-   npm run build
-   ```
+## Additional Libraries Required
+Make sure to install the following libraries for the server to function correctly:
+- `express`
+- `xlsx`
+- `@google-cloud/storage`
+- `multer`
+- `cors`
 
-6. Deploy to Google Cloud App Engine:
-   ```bash
-   gcloud app deploy
-   ```
+You can install them using:
+```bash
+npm install express xlsx @google-cloud/storage multer cors
+```
 
-## Configuration
-
-- Set up Google Cloud Storage credentials in your environment variables.
-- Configure the bucket name in `server.js` if needed.
-- **Set the `BUCKET_NAME` environment variable**:
-  - In PowerShell:
-    ```bash
-    $env:BUCKET_NAME="your_bucket_name"
-    ```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+## Description
+This project is a web application that provides comprehensive data engineering services for businesses of all sizes.

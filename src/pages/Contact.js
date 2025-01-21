@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import NavBar from '../components/Navbar/NavBar';
-import Footer from '../components/Footer';
 import { useDocTitle } from '../components/CustomHook';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
 const apiUrls = [
-    "http://localhost:5000/api/save-data", 
+    "https://your-production-url/api/save-data", // Update this to your actual production API URL
     "http://ssitechsolution.tech/api/save-data",
     "http://www.ssitechsolution/api/save-data"
 ];
