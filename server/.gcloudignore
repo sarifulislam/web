@@ -1,0 +1,21 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Environment variables
+.env
+.env.production
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+tmp/
+temp/
+
+# Ignore all files in the .git directory
+.git/
