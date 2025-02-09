@@ -11,4 +11,7 @@
 # production
 
 
-# misc
+# production
+/.env
+/.env.production
+/build/
