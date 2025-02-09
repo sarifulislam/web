@@ -1,6 +1,10 @@
 runtime: nodejs18
 env: standard
 
+env_variables:
+  CORS_ORIGIN: "https://www.ssitechsolution.tech/"
+  BUCKET_NAME: "backed_data"
+
 handlers:
   - url: /.*
     script: auto

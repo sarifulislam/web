@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config(); // Load environment variables
 
 const app = express();
-const PORT = 5000; // Changed port back to 5000
+const PORT = process.env.PORT || 5000; // Use PORT from environment or default to 5000
 const bucketName = "backed_data"; 
 
 // Check if required environment variables are set
