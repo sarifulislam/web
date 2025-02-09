@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "@google-cloud/storage": "^7.15.0",
-    "dotenv": "^16.4.7",
-    "express-validator": "^7.2.1",
-    "xlsx": "^0.18.5"
-  }
-}
