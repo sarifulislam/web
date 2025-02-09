@@ -1,6 +1,9 @@
 runtime: python39
 service: default
 
+env_variables:
+  REACT_APP_API_URL: "https://www.ssitechsolution.tech/api/save-data"
+
 handlers:
   - url: /
     static_files: build/index.html
