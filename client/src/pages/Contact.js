@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import Notiflix from 'notiflix'; // Added error handling library
+
 import NavBar from '../components/Navbar/NavBar';
 import { useDocTitle } from '../components/CustomHook';
-import axios from 'axios';
-import Notiflix from 'notiflix';
+import { getFirestore, collection, addDoc } from 'firebase/firestore'; // Import Firestore functions
+import { app } from '../firebaseConfig'; // Import the initialized Firebase app
 
-const apiUrl = process.env.REACT_APP_API_URL; // Retrieve API URL from environment variable
+
+const apiUrl = process.env.REACT_APP_API_URL + '/save-data'; // Retrieve API URL from environment variable and append the endpoint
+const db = getFirestore(app); // Initialize Firestore with the app instance
+
 
 const Contact = () => {
     useDocTitle('SSI Tech solution');
@@ -38,70 +43,44 @@ const Contact = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const sendEmail = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateForm()) return; // Validate before sending
+        if (!validateForm()) {
+            Notiflix.Report.failure('Validation Error', 'Please fill in all required fields.', 'Okay'); // Added error notification
+            return; // Validate before sending
+        }
 
         document.getElementById('submitBtn').disabled = true;
         document.getElementById('submitBtn').innerHTML = 'Loading...';
-        let fData = new FormData();
-        fData.append('first_name', firstName);
-        fData.append('last_name', lastName);
-        fData.append('email', email);
-        fData.append('phone_number', phone);
-        fData.append('message', message);
+        let fData = {
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            phone_number: phone,
+            message: message
+        };
 
-        // Use the single API URL
-        axios({
-            method: "post",
-            url: apiUrl,
-            data: fData,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
-        .then(function (response) {
+        try {
+            // Save contact details to Firestore
+            await addDoc(collection(db, 'contacts'), fData);
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'send message';
             clearInput();
-            // Handle success
-            Notiflix.Report.success(
+            Notiflix.Report.success( 
                 'Success',
-                response.data.message,
+                'Your message has been sent successfully!',
                 'Okay',
             );
-        })
-        .catch(function (error) {
+        } catch (error) {
             document.getElementById('submitBtn').disabled = false;
             document.getElementById('submitBtn').innerHTML = 'send message';
-            // Handle error
-            const { response } = error;
-            if (response) {
-                if (response.status === 500) {
-                    Notiflix.Report.failure(
-                        'An error occurred',
-                        response.data.message || 'Internal Server Error',
-                        'Okay',
-                    );
-                }
-                if (response.data.errors) {
-                    setErrors(response.data.errors);
-                } else {
-                    Notiflix.Report.failure(
-                        'An error occurred',
-                        'Unexpected error occurred. Please try again later.',
-                        'Okay',
-                    );
-                }
-            } else {
-                console.error('Error:', error);
-                Notiflix.Report.failure(
-                    'An error occurred',
-                    'Unable to connect to the server.',
-                    'Okay',
-                );
-            }
-        });
+            console.error('Error saving contact data:', error);
+            Notiflix.Report.failure( 
+                'An error occurred',
+                'Unable to connect to the server.',
+                'Okay',
+            );
+        }
     };
 
     return (
@@ -111,7 +90,7 @@ const Contact = () => {
             </div>
             <div id='contact' className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24 ">
                 <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
-                    <form onSubmit={sendEmail}>
+                    <form onSubmit={handleSubmit}>
                         <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
                             <div className="flex">
                                 <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Send us a message</h1>

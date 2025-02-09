@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import Notiflix from 'notiflix'; // Added error handling library
+
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import './index.css';

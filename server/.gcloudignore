@@ -1,7 +1,0 @@
-# This file specifies files that should be ignored by gcloud.
-*.pyc
-__pycache__/
-*.log
-*.env
-node_modules/
-build/
