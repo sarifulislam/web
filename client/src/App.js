@@ -32,7 +32,7 @@ function App() {
     });
   }, []);
 
-  useDocTitle("SSI Tech Solution| Data Engineering and Data Science Service solutions");
+  useDocTitle("ChatWhole| Data Engineering and Data Science Service solutions");
 
   return (
     <>

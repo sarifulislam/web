@@ -1,7 +1,8 @@
 {
   "hosting": {
     "public": "client/build",
-    "ignore": [
+    "site": "chatwhole-66603",
+     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
