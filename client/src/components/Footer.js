@@ -6,15 +6,15 @@ const Footer = () => {
     return (
         <>
             <footer>
-                <div className="footer max-w-full mx-auto px-4 sm:px-6 bg-gray-100 border-t border-b py-30">
+                <div className="footer max-w-full mx-auto px-4 sm:px-6 bg-gray-100 border-t border-b py-12 sm:py-20">
 
-                    {/* Top area: Blocks */}
-                    <div className="grid sm:grid-cols-12 gap-5 py-8 md:py-12 border-t border-gray-200 lg:ml-11">
+                    {/* Top area: Blocks */} 
+                    <div className="grid grid-cols-1 sm:grid-cols-12 gap-5 py-8 md:py-12 border-t border-gray-200 lg:ml-11">
 
-                    {/* 1st block */}
-                    <div className="col-span-12 lg:col-span-4">
-                        <div className="box-border border-b-4 border-blue-900 p-8 bg-gray-200 text-gray-600 text-center rounded-lg xl:w-80 mx-auto">
-                            <h3 className="font-bold text-4xl mb-4">SSI Tech Solution</h3>
+                    {/* 1st block */} 
+                    <div className="col-span-1 sm:col-span-12 lg:col-span-4">
+                        <div className="box-border border-b-4 border-blue-900 p-6 sm:p-8 bg-gray-200 text-gray-600 text-center rounded-lg xl:w-80 mx-auto">
+                            <h3 className="font-bold text-3xl sm:text-4xl mb-4">ChatWhole</h3>
                             <div className='text-md font-medium text-gray-600'>
                                 <h5>Kolaghat, Purba Medinipur</h5>
                                 <p>West Bengal</p>
@@ -24,9 +24,9 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* 2nd block */}
-                    <div className="col-span-6 md:col-span-6 lg:col-span-1 ml-7 mx-auto">
-                        <h6 className="text-[#013289] text-xl font-bold mb-4">LINKS</h6>
+                    {/* 2nd block */} 
+                    <div className="col-span-6 sm:col-span-6 lg:col-span-1 ml-0 sm:ml-7 mx-auto">
+                        <h6 className="text-[#013289] text-xl sm:text-2xl font-bold mb-4">LINKS</h6>
                         <ul className="text-md">
                         <li className="mb-2">
                             <HashLink to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">About</HashLink>
@@ -40,9 +40,9 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* 3rd block */}
-                    <div className="col-span-6 md:col-span-6 lg:col-span-4 mx-auto">
-                        <h6 className="text-[#013289] text-xl font-bold mb-4">OUR SERVICES</h6>
+                    {/* 3rd block */} 
+                    <div className="col-span-6 sm:col-span-6 lg:col-span-4 mx-auto">
+                        <h6 className="text-[#013289] text-xl sm:text-2xl font-bold mb-4">OUR SERVICES</h6>
                         <ul className="text-md">
                         <li className="mb-2">
                             <Link to="#" className="text-[#013289] hover:text-gray-900 hover:tracking-wider transition duration-250 ease-in-out">Big Data and Data Engineering Service</Link>
@@ -59,8 +59,8 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* 4th block */}
-                    <div className="col-span-12 text-center mx-auto lg:col-span-3 font-bold uppercase text-blue-900">
+                    {/* 4th block */} 
+                    <div className="col-span-1 sm:col-span-12 text-center mx-auto lg:col-span-3 font-bold uppercase text-blue-900">
                         <div className="text-xl mb-6">
                             Social Media Links.
                         </div>
@@ -98,7 +98,7 @@ const Footer = () => {
                         to="#"
                         className=" hover:text-gray-900"
                     >
-                        ssitechsolution.tech
+                        chatwhole.com
                     </HashLink>. All rights reserved.
                     </div>
                 </div>
@@ -111,3 +111,4 @@ const Footer = () => {
     )
 }
 export default Footer;
+

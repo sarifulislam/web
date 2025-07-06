@@ -1,0 +1,82 @@
+[
+  {
+    "id": "high-frequency-trading-with-AWS-Lambda",
+    "title": "High-Frequency Trading with AWS Lambda: The Ultimate Guide for 2025",
+    "authorName": "ChatWhole",
+    "date": "2024-06-01",
+    "excerpt": "Explore the opportunities, risks, and future trends in crypto trading with insights on tools and strategies.",
+    "contentFile": "high-frequency-trading-with-AWS-Lambda.html",
+    "tags": ["High-Frequency Trading", "AWS Lambda", "Crypto Trading", "Algorithmic Trading"],
+    "image": "/images/high-frequency-trading-aws-lambda.jpg"
+  },
+  {
+    "id": "aws-lambda-algo-trading",
+    "title": "Serverless Crypto Trading with AWS Lambda: The Ultimate Guide for 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-01",
+    "excerpt": "Learn how to build scalable, serverless crypto trading bots using AWS Lambda and algorithmic strategies.",
+    "contentFile": "aws-lambda-algo-trading.html",
+    "tags": ["Serverless", "AWS Lambda", "Crypto Trading", "Algorithmic Trading"],
+    "image": "/images/aws-lambda-algo-trading.jpg"
+  },
+  {
+    "id": "aws-ec2-algo-trading",
+    "title": "Algorithmic Trading with AWS EC2 and Binance: The Ultimate Guide for 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-03",
+    "excerpt": "Learn how to build a high-performance algorithmic trading system using AWS EC2 and Binance API. Discover setup steps, trading strategies, secure architecture, and sample Python code for automated crypto trading in 2025.",
+    "contentFile": "aws-ec2-algo-trading.html",
+    "tags": ["algorithmic trading", "crypto trading", "AWS EC2", "Binance API", "automated trading", "Python trading", "trading bot"],
+    "image": "/images/aws-ec2-algo-trading.jpg"
+  },
+  {
+    "id": "gcp-algo-trading",
+    "title": "Algorithmic Trading with Google Cloud Platform and Binance: The Ultimate Guide for 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-03",
+    "excerpt": "Learn how to build a high-performance algorithmic trading bot using Google Cloud Platform (GCP) and Binance API. Discover setup steps, trading strategies, secure architecture, and sample Python code for automated crypto trading in 2025.",
+    "contentFile": "gcp-algo-trading.html",
+    "tags": ["algorithmic trading", "crypto trading", "Google Cloud Platform", "Binance API", "automated trading", "Python trading", "trading bot"],
+    "image": "/images/gcp-algo-trading.jpg"
+  },
+  {
+    "id": "azure-algo-trading",
+    "title": "Algorithmic Trading with Microsoft Azure and Binance: The Ultimate Guide for 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-05",
+    "excerpt": "Learn how to build a scalable data engineering architecture for algorithmic trading using Microsoft Azure and Binance API. Discover setup steps, trading strategies, secure architecture, and sample Python code for automated crypto trading in 2025.",
+    "contentFile": "azure-algo-trading.html",
+    "tags": ["algorithmic trading", "crypto trading", "Microsoft Azure", "Binance API", "automated trading", "Python trading", "trading bot"],
+    "image": "/images/azure-algo-trading.jpg"
+  },
+  {
+    "id": "sftp-api-airflow-snowflake-flowchart",
+    "title": "Flowchart: Data Engineering Pipeline for Trading with SFTP, Binance API, Airflow, Azure Functions, and Snowflake in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-05",
+    "excerpt": "Explore the flowchart for a data engineering pipeline designed for algorithmic trading, integrating SFTP, Binance API, Apache Airflow, Azure Functions, and Snowflake. Learn how data flows through raw, curated, and mart layers to support momentum trading in 2025.",
+    "contentFile": "sftp-api-airflow-snowflake-flowchart.html",
+    "tags": ["data engineering", "algorithmic trading", "SFTP", "Binance API", "Apache Airflow", "Azure Functions", "Snowflake", "flowchart"],
+    "image": "/images/sftp-api-airflow-snowflake-flowchart.jpg"
+  },
+  {
+    "id": "aws-glue-redshift-trading",
+    "title": "End-to-End Data Engineering Pipeline for Trading with AWS Glue, Redshift, Airflow, and Binance API in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-05",
+    "excerpt": "Build an end-to-end automated data engineering pipeline for algorithmic trading using AWS Glue, Amazon Redshift, Apache Airflow, and Binance API. Learn to process SFTP and API data through raw, curated, and mart layers for momentum trading in 2025.",
+    "contentFile": "aws-glue-redshift-trading.html",
+    "tags": ["data engineering", "algorithmic trading", "AWS Glue", "Amazon Redshift", "Apache Airflow", "Binance API", "automation"],
+    "image": "/images/aws-glue-redshift-trading.jpg"
+  },
+  {
+    "id": "emr-lambda-redshift-trading",
+    "title": "End-to-End Data Engineering Pipeline for Trading with Amazon EMR, Lambda, Redshift, Airflow, and Binance API in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-05",
+    "excerpt": "Build an end-to-end automated data engineering pipeline for algorithmic trading using Amazon EMR, AWS Lambda, Amazon Redshift, Apache Airflow, and Binance API. Process SFTP and API data through raw, curated, and mart layers for momentum trading in 2025.",
+    "contentFile": "emr-lambda-redshift-trading.html",
+    "tags": ["data engineering", "algorithmic trading", "Amazon EMR", "AWS Lambda", "Amazon Redshift", "Apache Airflow", "Binance API", "automation"],
+    "image": "/images/emr-lambda-redshift-trading.jpg"
+  }
+]

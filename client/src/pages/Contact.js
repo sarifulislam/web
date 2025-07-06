@@ -4,49 +4,151 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import NavBar from '../components/Navbar/NavBar';
 import { useDocTitle } from '../components/CustomHook';
 import { app } from '../firebaseConfig';
+import { Helmet } from 'react-helmet-async';
 
-// Initialize Firestore
 const db = getFirestore(app);
 
-const Contact = () => {
-  // Set document title
-  useDocTitle('SSI Tech Solution');
+const professions = [
+  "Software Engineer",
+  "Data Scientist",
+  "Web Developer",
+  "Mobile App Developer",
+  "Product Manager",
+  "Project Manager",
+  "UI/UX Designer",
+  "Graphic Designer",
+  "Marketing Specialist",
+  "Sales Executive",
+  "Business Analyst",
+  "Accountant",
+  "Financial Analyst",
+  "Lawyer",
+  "Doctor",
+  "Nurse",
+  "Teacher",
+  "Researcher",
+  "Consultant",
+  "Engineer",
+  "Architect",
+  "Customer Support",
+  "Human Resources",
+  "Operations Manager",
+  "Entrepreneur",
+  "Freelancer",
+  "Other"
+];
 
-  // State for form fields and errors
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
+const positions = [
+  "CEO",
+  "Founder",
+  "Co-Founder",
+  "Managing Director",
+  "Director",
+  "VP (Vice President)",
+  "Senior Manager",
+  "Manager",
+  "Team Lead",
+  "Senior Engineer",
+  "Engineer",
+  "Associate",
+  "Analyst",
+  "Consultant",
+  "Intern",
+  "Contractor",
+  "Advisor",
+  "Partner",
+  "Freelancer",
+  "Assistant",
+  "Other"
+];
+
+const countryCodes = [
+  { code: "+1", label: "United States / Canada" },
+  { code: "+44", label: "United Kingdom" },
+  { code: "+91", label: "India" },
+  { code: "+61", label: "Australia" },
+  { code: "+81", label: "Japan" },
+  { code: "+49", label: "Germany" },
+  { code: "+33", label: "France" },
+  { code: "+39", label: "Italy" },
+  { code: "+86", label: "China" },
+  { code: "+971", label: "United Arab Emirates" },
+  { code: "+966", label: "Saudi Arabia" },
+  { code: "+92", label: "Pakistan" },
+  { code: "+880", label: "Bangladesh" },
+  { code: "+94", label: "Sri Lanka" },
+  { code: "+7", label: "Russia" },
+  { code: "+55", label: "Brazil" },
+  { code: "+27", label: "South Africa" },
+  { code: "+34", label: "Spain" },
+  { code: "+82", label: "South Korea" },
+  { code: "+46", label: "Sweden" },
+  { code: "+31", label: "Netherlands" },
+  { code: "+41", label: "Switzerland" },
+  { code: "+351", label: "Portugal" },
+  { code: "+63", label: "Philippines" },
+  { code: "+20", label: "Egypt" },
+  { code: "+62", label: "Indonesia" },
+  { code: "+48", label: "Poland" },
+  { code: "+64", label: "New Zealand" },
+  { code: "+60", label: "Malaysia" },
+  { code: "+66", label: "Thailand" },
+  { code: "+52", label: "Mexico" }
+];
+
+const Contact = () => {
+  useDocTitle('ChatWhole - Contact Us');
+
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    profession: '',
+    position: '',
+    countryCode: '+1',
+    phone: '',
+    message: ''
+  });
+
   const [errors, setErrors] = useState({});
 
-  // Clear form errors
   const clearErrors = () => {
     setErrors({});
   };
 
-  // Clear form inputs
   const clearInput = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-    setPhone('');
-    setMessage('');
+    setFormData({
+      firstName: '',
+      lastName: '',
+      company: '',
+      email: '',
+      profession: '',
+      position: '',
+      countryCode: '+1',
+      phone: '',
+      message: ''
+    });
   };
 
-  // Validate form fields
   const validateForm = () => {
     const newErrors = {};
-    if (!firstName) newErrors.first_name = 'First name is required.';
-    if (!lastName) newErrors.last_name = 'Last name is required.';
-    if (!email) newErrors.email = 'Email is required.';
-    if (!phone) newErrors.phone_number = 'Phone number is required.';
-    if (!message) newErrors.message = 'Message is required.';
+    if (!formData.firstName) newErrors.firstName = 'First name is required.';
+    if (!formData.lastName) newErrors.lastName = 'Last name is required.';
+    if (!formData.email) newErrors.email = 'Email is required.';
+    if (!formData.phone) newErrors.phone = 'Phone number is required.';
+    if (!formData.position) newErrors.position = 'Position is required.';
+    if (!formData.message) newErrors.message = 'Message is required.';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+    clearErrors();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -63,16 +165,19 @@ const Contact = () => {
     submitBtn.disabled = true;
     submitBtn.innerHTML = 'Loading...';
 
-    const formData = {
-      first_name: firstName,
-      last_name: lastName,
-      email,
-      phone_number: phone,
-      message,
+    const submitData = {
+      first_name: formData.firstName,
+      last_name: formData.lastName,
+      company: formData.company,
+      email: formData.email,
+      profession: formData.profession,
+      position: formData.position,
+      phone_number: formData.countryCode + ' ' + formData.phone,
+      message: formData.message,
     };
 
     try {
-      await addDoc(collection(db, 'contacts'), formData);
+      await addDoc(collection(db, 'contacts'), submitData);
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send Message';
       clearInput();
@@ -84,10 +189,9 @@ const Contact = () => {
     } catch (error) {
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send Message';
-      console.error('Error saving contact data:', error);
       Notiflix.Report.failure(
         'An error occurred',
-        'Unable to connect to the server.',
+        `Unable to connect to the server. Error: ${error.message}`,
         'Okay'
       );
     }
@@ -95,13 +199,21 @@ const Contact = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Us - ChatWhole</title>
+        <meta name="description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
+        <link rel="canonical" href="https://chatwhole.com/contact" />
+        <meta property="og:title" content="Contact Us - ChatWhole" />
+        <meta property="og:description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
+        <meta property="og:url" content="https://chatwhole.com/contact" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us - ChatWhole" />
+        <meta name="twitter:description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
+      </Helmet>
       <NavBar />
-      <div
-        id="contact"
-        className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24"
-      >
+      <div id="contact" className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24">
         <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
-          {/* Contact Form */}
           <form onSubmit={handleSubmit}>
             <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
               <div className="flex">
@@ -110,82 +222,108 @@ const Contact = () => {
                 </h1>
               </div>
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                {/* First Name */}
                 <div>
                   <input
-                    name="first_name"
+                    name="firstName"
                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                     type="text"
                     placeholder="First Name*"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    onKeyUp={clearErrors}
+                    value={formData.firstName}
+                    onChange={handleChange}
                   />
-                  {errors.first_name && (
-                    <p className="text-red-500 text-sm">{errors.first_name}</p>
-                  )}
+                  {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
                 </div>
-                {/* Last Name */}
                 <div>
                   <input
-                    name="last_name"
+                    name="lastName"
                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                     type="text"
                     placeholder="Last Name*"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    onKeyUp={clearErrors}
+                    value={formData.lastName}
+                    onChange={handleChange}
                   />
-                  {errors.last_name && (
-                    <p className="text-red-500 text-sm">{errors.last_name}</p>
-                  )}
+                  {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
                 </div>
-                {/* Email */}
+                <div>
+                  <input
+                    name="company"
+                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Company"
+                    value={formData.company}
+                    onChange={handleChange}
+                  />
+                </div>
                 <div>
                   <input
                     name="email"
                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                     type="email"
                     placeholder="Email*"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onKeyUp={clearErrors}
+                    value={formData.email}
+                    onChange={handleChange}
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email}</p>
-                  )}
+                  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                 </div>
-                {/* Phone Number */}
                 <div>
-                  <input
-                    name="phone_number"
+                  <select
+                    name="profession"
                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                    type="number"
-                    placeholder="Phone*"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    onKeyUp={clearErrors}
+                    value={formData.profession}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Profession*</option>
+                    {professions.map((prof) => (
+                      <option key={prof} value={prof}>{prof}</option>
+                    ))}
+                  </select>
+                  {errors.profession && <p className="text-red-500 text-sm">{errors.profession}</p>}
+                </div>
+                <div>
+                  <select
+                    name="position"
+                    className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                    value={formData.position}
+                    onChange={handleChange}
+                  >
+                    <option value="">Select Position*</option>
+                    {positions.map((pos) => (
+                      <option key={pos} value={pos}>{pos}</option>
+                    ))}
+                  </select>
+                  {errors.position && <p className="text-red-500 text-sm">{errors.position}</p>}
+                </div>
+                <div className="flex">
+                  <select
+                    name="countryCode"
+                    className="bg-gray-100 text-gray-900 mt-2 p-3 rounded-l-lg focus:outline-none focus:shadow-outline w-1/3"
+                    value={formData.countryCode}
+                    onChange={handleChange}
+                  >
+                    {countryCodes.map(({ code, label }) => (
+                      <option key={code} value={code}>{label} ({code})</option>
+                    ))}
+                  </select>
+                  <input
+                    name="phone"
+                    className="w-2/3 bg-gray-100 text-gray-900 mt-2 p-3 rounded-r-lg focus:outline-none focus:shadow-outline"
+                    type="tel"
+                    placeholder="Phone Number*"
+                    value={formData.phone}
+                    onChange={handleChange}
                   />
-                  {errors.phone_number && (
-                    <p className="text-red-500 text-sm">{errors.phone_number}</p>
-                  )}
                 </div>
               </div>
-              {/* Message */}
               <div className="my-4">
                 <textarea
                   name="message"
                   placeholder="Message*"
                   className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  onKeyUp={clearErrors}
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
-                {errors.message && (
-                  <p className="text-red-500 text-sm">{errors.message}</p>
-                )}
+                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
               </div>
-              {/* Submit Button */}
               <div className="my-2 w-1/2 lg:w-2/4">
                 <button
                   type="submit"
@@ -197,71 +335,6 @@ const Contact = () => {
               </div>
             </div>
           </form>
-          {/* Contact Information */}
-          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-900 rounded-2xl">
-            <div className="flex flex-col text-white">
-              {/* Office Address */}
-              <div className="flex my-4 w-2/3 lg:w-3/4">
-                <div className="flex flex-col">
-                  <i className="fas fa-map-marker-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">Office Address</h2>
-                  <p className="text-gray-400">Kolaghat, West Bengal, 721151</p>
-                </div>
-              </div>
-              {/* Contact Details */}
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <div className="flex flex-col">
-                  <i className="fas fa-phone-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-400">WhatsApp: +91 9800435692</p>
-                  <div className="mt-5">
-                    <h2 className="text-2xl">Send an E-mail</h2>
-                    <p className="text-gray-400">appchatwhole@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-              {/* Social Media Links */}
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <a
-                  href="https://www.facebook.com/chatwhole/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full flex justify-center bg-white h-8 text-blue-900 w-8 mx-1 text-center pt-1"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    className="fill-current font-black hover:animate-pulse"
-                  >
-                    <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"></path>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/chatwhole"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="rounded-full flex justify-center bg-white h-8 text-blue-900 w-8 mx-1 text-center pt-1"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    className="fill-current font-black hover:animate-pulse"
-                  >
-                    <circle cx="4.983" cy="5.009" r="2.188"></circle>
-                    <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.492-3.065 3.218v5.904H9.237V8.855z"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </>

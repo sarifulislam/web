@@ -1,0 +1,22 @@
+{
+  "mainTitle": "Power Your Crypto Trading with AI Automation",
+  "subtitle": "Unleash consistent profits with our AI-driven trading solutions, powered by AWS, GCP, and Azure, seamlessly integrated with Binance.",
+  "features": [
+    {
+      "title": "AI-Powered Trading Bots",
+      "description": "Harness AWS Lambda, GCP AI Platform, and Azure ML to deploy high-precision trading bots for arbitrage, scalping, and trend trading on Binance."
+    },
+    {
+      "title": "Smart Portfolio Management",
+      "description": "Optimize your crypto portfolio with real-time rebalancing using GCP BigQuery, Azure Functions, and AWS DynamoDB for maximum returns."
+    },
+    {
+      "title": "Custom Trading Algorithms",
+      "description": "Build tailored algorithms with AWS SageMaker and Binance data, backtested for reliability and optimized for profitability."
+    },
+    {
+      "title": "Why Choose Us?",
+      "description": "AI-driven trading expertise\nMulti-cloud scalability\nSecure Binance integration\n24/7 market monitoring"
+    }
+  ]
+}

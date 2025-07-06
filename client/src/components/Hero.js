@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../components/Navbar/NavBar';
+import heroData from '../data/hero.json';
 
 const Hero = () => {
     return (
@@ -18,74 +19,39 @@ const Hero = () => {
                     data-aos-duration="1000"
                 >
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg text-yellow-400">
-                        {/* Alternative: Cyan-300 */}
-                        {/* className="... text-cyan-300" */}
-                        {/* Alternative: Gradient */}
-                        {/* className="... bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-cyan-300" */}
-                        Power Your Crypto Trading with AI Automation
+                        {heroData.mainTitle}
                     </h1>
-                    <p className="text-lg md:text-xl lg:text-2xl font-medium mb-8 text-gray-200 max-w-3xl mx-auto">
-                        Unleash consistent profits with our AI-driven trading solutions, powered by AWS, GCP, and Azure, seamlessly integrated with Binance.
+                    <p className="text-lg md:text-xl lg:text-2xl font-medium mb-8 text-gray-200 max-w-3xl mx-auto whitespace-pre-line">
+                        {heroData.subtitle}
                     </p>
                 </div>
 
                 {/* Feature Cards Section */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 max-w-7xl mx-auto">
-                    <div
-                        className="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 p-6 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-blue-200 border-opacity-30"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                        data-aos-duration="800"
-                    >
-                        <h2 className="text-xl md:text-2xl font-bold text-blue-900 mb-3">
-                            AI-Powered Trading Bots
-                        </h2>
-                        <p className="text-sm md:text-base text-gray-700">
-                            Harness AWS Lambda, GCP AI Platform, and Azure ML to deploy high-precision trading bots for arbitrage, scalping, and trend trading on Binance.
-                        </p>
-                    </div>
-                    <div
-                        className="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 p-6 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-blue-200 border-opacity-30"
-                        data-aos="fade-up"
-                        data-aos-delay="400"
-                        data-aos-duration="800"
-                    >
-                        <h2 className="text-xl md:text-2xl font-bold text-blue-900 mb-3">
-                            Smart Portfolio Management
-                        </h2>
-                        <p className="text-sm md:text-base text-gray-700">
-                            Optimize your crypto portfolio with real-time rebalancing using GCP BigQuery, Azure Functions, and AWS DynamoDB for maximum returns.
-                        </p>
-                    </div>
-                    <div
-                        className="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 p-6 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-blue-200 border-opacity-30"
-                        data-aos="fade-up"
-                        data-aos-delay="600"
-                        data-aos-duration="800"
-                    >
-                        <h2 className="text-xl md:text-2xl font-bold text-blue-900 mb-3">
-                            Custom Trading Algorithms
-                        </h2>
-                        <p className="text-sm md:text-base text-gray-700">
-                            Build tailored algorithms with AWS SageMaker and Binance data, backtested for reliability and optimized for profitability.
-                        </p>
-                    </div>
-                    <div
-                        className="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 p-6 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-blue-200 border-opacity-30"
-                        data-aos="fade-up"
-                        data-aos-delay="800"
-                        data-aos-duration="800"
-                    >
-                        <h2 className="text-xl md:text-2xl font-bold text-blue-900 mb-3">
-                            Why Choose Us?
-                        </h2>
-                        <ul className="list-disc list-inside text-sm md:text-base text-gray-700 space-y-1">
-                            <li>AI-driven trading expertise</li>
-                            <li>Multi-cloud scalability</li>
-                            <li>Secure Binance integration</li>
-                            <li>24/7 market monitoring</li>
-                        </ul>
-                    </div>
+                    {heroData.features.map((feature, index) => (
+                        <div
+                            key={index}
+                            className="bg-white bg-opacity-90 backdrop-blur-md text-gray-800 p-6 rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:shadow-3xl border border-blue-200 border-opacity-30"
+                            data-aos="fade-up"
+                            data-aos-delay={200 + index * 200}
+                            data-aos-duration="800"
+                        >
+                            <h2 className="text-xl md:text-2xl font-bold text-blue-900 mb-3">
+                                {feature.title}
+                            </h2>
+                            {feature.title === "Why Choose Us?" ? (
+                                <ul className="list-disc list-inside text-sm md:text-base text-gray-700 space-y-1 whitespace-pre-line">
+                                    {feature.description.split('\n').map((line, i) => (
+                                        <li key={i}>{line}</li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                <p className="text-sm md:text-base text-gray-700 whitespace-pre-line">
+                                    {feature.description}
+                                </p>
+                            )}
+                        </div>
+                    ))}
                 </div>
 
                 {/* Call-to-Action Button */}
