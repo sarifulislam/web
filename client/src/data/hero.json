@@ -1,22 +1,22 @@
 {
-  "mainTitle": "Power Your Crypto Trading with AI Automation",
-  "subtitle": "Unleash consistent profits with our AI-driven trading solutions, powered by AWS, GCP, and Azure, seamlessly integrated with Binance.",
+  "mainTitle": "Transform Your Financial Trading with Universal AI Automation",
+  "subtitle": "Unlock consistent profits across crypto, stocks, and forex with our versatile AI agent, powered by AWS, GCP, and Azure, seamlessly integrated with platforms like Binance for unmatched performance.",
   "features": [
     {
-      "title": "AI-Powered Trading Bots",
-      "description": "Harness AWS Lambda, GCP AI Platform, and Azure ML to deploy high-precision trading bots for arbitrage, scalping, and trend trading on Binance."
+      "title": "AI Agent for Precision Trading Across Markets",
+      "description": "Supercharge your trading with our AI agent, leveraging AWS Lambda, GCP AI Platform, and Azure ML to execute high-precision strategies like arbitrage and trend trading across crypto (via Binance), stocks, and forex, ensuring optimal returns with minimal risk."
     },
     {
-      "title": "Smart Portfolio Management",
-      "description": "Optimize your crypto portfolio with real-time rebalancing using GCP BigQuery, Azure Functions, and AWS DynamoDB for maximum returns."
+      "title": "AI Agent for Intelligent Market Insights",
+      "description": "Gain a competitive edge with our AI agent, powered by GCP Vertex AI and Azure Cognitive Services, delivering real-time market analysis and high-accuracy trading signals for informed decisions in crypto, equities, or forex markets."
     },
     {
-      "title": "Custom Trading Algorithms",
-      "description": "Build tailored algorithms with AWS SageMaker and Binance data, backtested for reliability and optimized for profitability."
+      "title": "AI Agent for 24/7 Automated Trading",
+      "description": "Let our versatile AI agent, built on AWS Step Functions and integrated with platforms like Binance, automate your trading 24/7. It dynamically optimizes strategies across volatile markets, delivering profits tailored to your financial goals."
     },
     {
-      "title": "Why Choose Us?",
-      "description": "AI-driven trading expertise\nMulti-cloud scalability\nSecure Binance integration\n24/7 market monitoring"
+      "title": "AI Agent for Smart Portfolio Optimization",
+      "description": "Effortlessly manage your investments with our AI agent, using GCP BigQuery, Azure Functions, and AWS DynamoDB for real-time portfolio rebalancing across crypto, stocks, and forex, maximizing returns with seamless automation."
     }
   ]
 }

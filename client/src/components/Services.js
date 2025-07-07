@@ -3,22 +3,28 @@ import servicesData from '../data/services.json';
 import blockchainImg from '../images/algo-trading.svg'; // Kept single image as per original code
 
 const Services = () => {
-    const mainService = servicesData.services.find(service => service.title === "Crypto Trading Automation");
-    const otherServices = servicesData.services.filter(service => service.title !== "Crypto Trading Automation");
+    // Combine the two main services into one object to avoid duplicate display
+    const mainServicesTitles = ["Crypto Trading Automation", "AI-Powered Crypto Trading"];
+    const mainServices = servicesData.services.filter(service => mainServicesTitles.includes(service.title));
+    const otherServices = servicesData.services.filter(service => !mainServicesTitles.includes(service.title));
 
     return (
         <div id="services" className="bg-gray-100 py-12">
             <section data-aos="zoom-in-down">
                 <div className="my-4 py-4">
-                    <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
-                        {mainService ? mainService.title : "Crypto Trading Automation"}
-                    </h2>
-                    <div className='flex justify-center'>
-                        <div className='w-24 border-b-4 border-blue-900'></div>
-                    </div>
-                    <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-blue-900">
-                        {mainService ? mainService.subtitle : "Empowering wealth creation with AI-driven trading solutions on AWS, GCP, and Azure."}
-                    </h2>
+                    {mainServices.map((service, index) => (
+                        <div key={index} className="mb-8">
+                            <h2 className="my-2 text-center text-3xl text-blue-900 uppercase font-bold">
+                                {service.title}
+                            </h2>
+                            <div className='flex justify-center'>
+                                <div className='w-24 border-b-4 border-blue-900'></div>
+                            </div>
+                            <h2 className="mt-4 mx-12 text-center text-xl lg:text-2xl font-semibold text-blue-900">
+                                {service.subtitle}
+                            </h2>
+                        </div>
+                    ))}
                 </div>
 
                 <div className="px-12" data-aos="fade-down" data-aos-delay="600">

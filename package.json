@@ -1,8 +1,11 @@
 {
   "dependencies": {
-    "firebase": "^11.9.0",
+    "cors": "^2.8.5",
+    "firebase": "^11.9.1",
+    "node-fetch": "^3.3.2",
     "notiflix": "^3.2.8",
     "react-country-region-selector": "^4.0.2",
+    "react-helmet-async": "^2.0.5",
     "react-scripts": "^3.0.1"
   }
 }

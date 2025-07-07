@@ -1,6 +1,7 @@
 {
   "projects": {
-    "production": "chatwhole-66603"
+    "production": "chatwhole-dev",
+    "default": "chatwhole-dev"
   },
   "targets": {},
   "etags": {}

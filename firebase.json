@@ -1,11 +1,17 @@
 {
   "hosting": {
     "public": "client/build",
-    "site": "chatwhole-66603",
-     "ignore": [
+    "site": "chatwhole-dev",
+    "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

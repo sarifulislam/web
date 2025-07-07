@@ -1,0 +1,25 @@
+{
+  "supportContact": {
+    "phone": "+91 98004 35692",
+    "email": "appchatwhole@gmail.com"
+  },
+  "questions": [
+    {
+      "id": "welcome",
+      "question": "Hello and welcome to Chatwhole — your partner in intelligent AI and agent services.\nI'm here to help you with any queries. Let's get started!"
+    },
+    {
+      "id": "phone",
+      "question": "May I have your phone number so our support team can reach out if needed?"
+    },
+    {
+      "id": "email",
+      "question": "Could you please share your email address so we can send you more details or updates?"
+    },
+    {
+      "id": "service",
+      "question": "Which of our services are you interested in?\n\n🤖 AI Solutions\n🧑‍💼 Virtual Agent Services\n🧠 Custom AI Development\n📊 Data & Analytics\n🛠️ Something Else"
+    }
+  ],
+  "thankYouMessage": "Thank you for sharing your details!\nOur expert team will contact you shortly.\nAt Chatwhole, we’re committed to providing cutting-edge AI solutions and intelligent agent services tailored to your needs.\n\n📞 Contact Info Reminder (Optional Fallback)\n\nNeed immediate support?\n📞 Phone: +91 98004 35692\n📧 Email: appchatwhole@gmail.com"
+}
