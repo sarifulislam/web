@@ -4,8 +4,8 @@ import blockchainImg from '../images/algo-trading.svg'; // Kept single image as 
 
 const Services = () => {
     // Combine the two main services into one object to avoid duplicate display
-    const mainServicesTitles = ["Crypto Trading Automation", "AI-Powered Crypto Trading"];
-    const mainServices = servicesData.services.filter(service => mainServicesTitles.includes(service.title));
+const mainServicesTitles = ["Crypto Trading Automation", "Data Engineering and Data Science Solutions"];
+const mainServices = servicesData.services.filter(service => mainServicesTitles.includes(service.title));
     const otherServices = servicesData.services.filter(service => !mainServicesTitles.includes(service.title));
 
     return (

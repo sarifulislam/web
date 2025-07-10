@@ -1,22 +1,22 @@
 {
-  "mainTitle": "Transform Your Financial Trading with Universal AI Automation",
-  "subtitle": "Unlock consistent profits across crypto, stocks, and forex with our versatile AI agent, powered by AWS, GCP, and Azure, seamlessly integrated with platforms like Binance for unmatched performance.",
+  "mainTitle": "Empowering Your Projects with Advanced AI, Data Science, and Crypto Solutions",
+  "subtitle": "Delivering innovative, scalable, and secure AI-driven services across data engineering, intelligent agents, crypto trading, and custom AI applications to accelerate your project success.",
   "features": [
     {
-      "title": "AI Agent for Precision Trading Across Markets",
-      "description": "Supercharge your trading with our AI agent, leveraging AWS Lambda, GCP AI Platform, and Azure ML to execute high-precision strategies like arbitrage and trend trading across crypto (via Binance), stocks, and forex, ensuring optimal returns with minimal risk."
+      "title": "Data Engineering and Data Science Solutions",
+      "description": "Build scalable, secure data pipelines and cloud-optimized storage solutions using Apache Spark, Airflow, Kafka, and AWS/GCP to power your AI and analytics platforms."
     },
     {
-      "title": "AI Agent for Intelligent Market Insights",
-      "description": "Gain a competitive edge with our AI agent, powered by GCP Vertex AI and Azure Cognitive Services, delivering real-time market analysis and high-accuracy trading signals for informed decisions in crypto, equities, or forex markets."
+      "title": "Data Science & AI Agent Development",
+      "description": "Develop intelligent AI agents and data science models leveraging machine learning and reinforcement learning to automate decision-making and optimize business processes."
     },
     {
-      "title": "AI Agent for 24/7 Automated Trading",
-      "description": "Let our versatile AI agent, built on AWS Step Functions and integrated with platforms like Binance, automate your trading 24/7. It dynamically optimizes strategies across volatile markets, delivering profits tailored to your financial goals."
+      "title": "Crypto Trading Bot Development",
+      "description": "Design and deploy AI-driven crypto trading bots with real-time market analytics, predictive modeling, and risk management on platforms like Binance using AWS, GCP, and Azure."
     },
     {
-      "title": "AI Agent for Smart Portfolio Optimization",
-      "description": "Effortlessly manage your investments with our AI agent, using GCP BigQuery, Azure Functions, and AWS DynamoDB for real-time portfolio rebalancing across crypto, stocks, and forex, maximizing returns with seamless automation."
+      "title": "Custom AI Solutions",
+      "description": "Deliver tailored AI services including predictive analytics, natural language processing, and computer vision to meet unique business challenges and drive innovation."
     }
   ]
 }

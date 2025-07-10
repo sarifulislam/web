@@ -76,7 +76,10 @@ const Chatbot = () => {
 
   return (
     <div style={styles.chatbotContainer}>
-      <div style={styles.chatHeader}>Chat with us</div>
+      <div style={styles.chatHeader}>
+        <img src="/logo192.png" alt="ChatWhole Logo" style={styles.logo} />
+        Chat with us
+      </div>
       <div style={styles.chatBody}>
         {chatHistory.map((msg, index) => (
           <div
@@ -84,14 +87,18 @@ const Chatbot = () => {
             style={{
               ...styles.chatMessage,
               alignSelf: msg.from === 'bot' ? 'flex-start' : 'flex-end',
-              backgroundColor: msg.from === 'bot' ? '#e1e1e1' : '#007bff',
-              color: msg.from === 'bot' ? '#000' : '#fff',
+              backgroundColor: msg.from === 'bot' ? '#f1f1f1' : '#0056b3',
+              color: msg.from === 'bot' ? '#333' : '#fff',
+              boxShadow: msg.from === 'bot' ? '2px 2px 5px rgba(0,0,0,0.1)' : '2px 2px 8px rgba(0,86,179,0.6)',
+              transition: 'background-color 0.3s ease',
             }}
           >
-            {msg.text}
+            {msg.text.split('\n').map((line, i) => (
+              <p key={i} style={{ margin: '4px 0' }}>{line}</p>
+            ))}
           </div>
         ))}
-        {loading && <div style={{ ...styles.chatMessage, alignSelf: 'flex-start' }}>Sending...</div>}
+        {loading && <div style={{ ...styles.chatMessage, alignSelf: 'flex-start', fontStyle: 'italic' }}>Sending...</div>}
         {error && <div style={{ ...styles.chatMessage, alignSelf: 'flex-start', color: 'red' }}>{error}</div>}
       </div>
       {!chatCompleted && (
@@ -119,59 +126,77 @@ const styles = {
     position: 'fixed',
     bottom: 20,
     right: 20,
-    width: 320,
-    maxHeight: 480,
-    backgroundColor: '#fff',
-    boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-    borderRadius: 8,
+    width: 350,
+    maxHeight: 520,
+    backgroundColor: '#ffffff',
+    boxShadow: '0 8px 20px rgba(0,0,0,0.25)',
+    borderRadius: 12,
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: 'Arial, sans-serif',
+    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     zIndex: 1000,
+    overflow: 'hidden',
   },
   chatHeader: {
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '10px 15px',
-    fontWeight: 'bold',
-    fontSize: 16,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    backgroundColor: '#004085',
+    color: '#ffffff',
+    padding: '12px 20px',
+    fontWeight: '700',
+    fontSize: 18,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    display: 'flex',
+    alignItems: 'center',
+    gap: 12,
+  },
+  logo: {
+    width: 32,
+    height: 32,
+    borderRadius: '50%',
+    boxShadow: '0 0 8px rgba(0,0,0,0.2)',
   },
   chatBody: {
     flex: 1,
-    padding: 10,
+    padding: 15,
     overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    gap: 8,
+    gap: 10,
+    backgroundColor: '#f9f9f9',
   },
   chatMessage: {
-    maxWidth: '80%',
-    padding: 10,
-    borderRadius: 12,
-    fontSize: 14,
+    maxWidth: '75%',
+    padding: 12,
+    borderRadius: 16,
+    fontSize: 15,
     wordWrap: 'break-word',
+    whiteSpace: 'pre-wrap',
   },
   chatInputContainer: {
     display: 'flex',
     borderTop: '1px solid #ddd',
+    backgroundColor: '#fff',
+    padding: 10,
   },
   chatInput: {
     flex: 1,
-    border: 'none',
-    padding: 10,
-    fontSize: 14,
-    borderRadius: '0 0 0 8px',
+    border: '1px solid #ccc',
+    padding: 12,
+    fontSize: 15,
+    borderRadius: '8px 0 0 8px',
     outline: 'none',
+    transition: 'border-color 0.3s ease',
   },
   sendButton: {
-    backgroundColor: '#007bff',
+    backgroundColor: '#004085',
     border: 'none',
     color: '#fff',
-    padding: '0 15px',
+    padding: '0 20px',
     cursor: 'pointer',
-    borderRadius: '0 0 8px 0',
+    borderRadius: '0 8px 8px 0',
+    fontWeight: '600',
+    fontSize: 15,
+    transition: 'background-color 0.3s ease',
   },
 };
 

@@ -4,16 +4,16 @@ import services from '../data/portfolio.json';
 import servicesData from '../data/services.json';
 
 const Portfolio = () => {
-    const mainService = servicesData.services.find(service => service.title === "AI-Powered Crypto Trading");
+    const mainService = servicesData.services.find(service => service.title === "Data Engineering and Data Science Solutions");
 
     return (
         <>
             <div className="my-8 py-8 bg-gray-50" id="portfolio">
                 <h2 className="my-4 text-center text-4xl text-blue-900 uppercase font-bold tracking-wide">
-                    {mainService ? mainService.title : "AI-Powered Crypto Trading"}
+                    {mainService ? mainService.title : "Data Engineering and Data Science Solutions"}
                 </h2>
                 <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                    {mainService ? mainService.subtitle : "Harness the power of AWS, GCP, and Azure with our AI-driven trading solutions for Binance, designed to maximize profits, minimize risk, and automate your crypto trading journey."}
+                    {mainService ? mainService.description || mainService.subtitle : ""}
                 </p>
                 <div className="flex justify-center">
                     <div className="w-32 border-b-4 border-blue-900 mb-12"></div>

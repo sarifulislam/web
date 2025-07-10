@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import NavLinks from '../Navbar/NavLinks';
 import { Link } from 'react-router-dom';
+import logo from '../../images/logo.jpg';
+
 const NavBar = () => {
     const [top, setTop] = useState(!window.scrollY);
     const [isOpen, setisOpen] = React.useState(false);
@@ -21,6 +23,7 @@ const NavBar = () => {
             <div className="flex flex-row justify-between items-center py-2 px-4 sm:px-6 md:px-12 mx-auto max-w-screen-xl">
                 <div className="flex flex-row justify-center items-center text-center font-semibold">
                     <Link to="/">
+<img src={logo} alt="Logo" className="h-16 w-auto" />
                     </Link>
                 </div>
                 <div className="group flex flex-col items-center">
