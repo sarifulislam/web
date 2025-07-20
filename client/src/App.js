@@ -13,6 +13,7 @@ import Contact from './pages/Contact';
 import DemoProduct from './pages/DemoProduct';
 import BlogList from './pages/BlogList';
 import Blog from './pages/Blog';
+import Pricing from './pages/Pricing';
 
 // Removed BlogList and BlogPost imports as blog pages are removed
 
@@ -49,6 +50,7 @@ function App() {
             {/* Removed blog routes */}
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:id" element={<Blog />} />
+            <Route path="/pricing" element={<Pricing />} />
           </Routes>
         </ScrollToTop>
       </Router>

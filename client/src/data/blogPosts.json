@@ -1,5 +1,76 @@
 [
   {
+    "id": "scalable-ai-financial-planning-agent",
+    "title": "Scalable AI Financial Planning Agent: Architecture, Implementation, and Monetization in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-12",
+    "excerpt": "Build a scalable AI Financial Planning Agent with Plaid API, GPT-4o, and Plotly for personalized budgeting, investment planning, and goal tracking. Learn implementation steps, features, scalability strategies, and monetization tactics for 2025.",
+    "contentFile": "scalable-ai-financial-planning-agent.html",
+    "tags": ["AI financial planning", "WealthTech", "Plaid API", "GPT-4o", "Plotly", "budgeting", "investment planning", "scalability", "fintech"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "scalable-ai-customer-support-agent",
+    "title": "Scalable AI Customer Support Agent: Architecture, Implementation, and Business Promotion in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-10",
+    "excerpt": "Learn how to build a scalable AI customer support agent using Rasa, Python, PostgreSQL, Apache Kafka, and APIs with multilingual support and sentiment analysis.",
+    "contentFile": "scalable-ai-customer-support-agent.html",
+    "tags": ["AI customer support", "Rasa", "Kafka", "PostgreSQL", "Python", "automation", "NLP", "scalability"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "scalable-ai-legal-assistant-agent",
+    "title": "Scalable AI Legal Assistant Agent: Architecture, Implementation, and Monetization in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-15",
+    "excerpt": "Build a scalable AI Legal Assistant Agent with GPT-4o, LangChain RAG, and Pinecone for contract drafting, review, and legal research. Learn implementation steps, features, scalability strategies, and monetization tactics for 2025.",
+    "contentFile": "scalable-ai-legal-assistant-agent.html",
+    "tags": ["AI legal assistant", "LegalTech", "GPT-4o", "LangChain", "Pinecone", "contract drafting", "legal research", "scalability", "law firm automation"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "scalable-regulatory-reporting-automation-pipeline",
+    "title": "Scalable Regulatory Reporting Automation Pipeline: Architecture, Implementation, and Compliance in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-16",
+    "excerpt": "Build a scalable regulatory reporting automation pipeline on AWS for financial institutions, ensuring compliance with SEC, AML, KYC, GDPR, and CCPA. Learn implementation steps, features, scalability strategies, and security practices for 2025.",
+    "contentFile": "scalable-regulatory-reporting-automation-pipeline.html",
+    "tags": ["regulatory reporting", "AWS", "Kinesis", "Glue", "Redshift", "compliance", "ETL", "financial reporting", "scalability"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "customer-360-data-platform",
+    "title": "Customer 360 Data Platform for Personalized Financial Services: Architecture, Implementation, and Compliance in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-17",
+    "excerpt": "Build a Customer 360 Data Platform on AWS for personalized financial services, integrating real-time data, analytics, and compliance with GDPR and CCPA. Learn implementation steps, features, scalability strategies, and security practices for 2025.",
+    "contentFile": "customer-360-data-platform.html",
+    "tags": ["Customer 360", "AWS", "Kafka", "Snowflake", "FastAPI", "Streamlit", "personalization", "compliance", "financial services"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "snowflake-airflow-dbt-data-pipeline",
+    "title": "Snowflake-Airflow-dbt End-to-End Data Engineering Pipeline: Architecture, Implementation, and Scalability in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-18",
+    "excerpt": "Build an end-to-end data engineering pipeline using Snowflake, Airflow, and dbt for data ingestion, transformation, and orchestration. Learn implementation steps, features, scalability strategies, and security practices for 2025.",
+    "contentFile": "snowflake-airflow-dbt-data-pipeline.html",
+    "tags": ["data engineering", "Snowflake", "Airflow", "dbt", "SFTP", "API", "data pipeline", "scalability", "compliance"],
+    "image": "/images/ai.svg"
+  },
+  {
+    "id": "customer-360-data-platform",
+    "title": "Customer 360 Data Platform for Personalized Financial Services: Architecture, Implementation, and Compliance in 2025",
+    "authorName": "Sariful Islam",
+    "date": "2025-07-17",
+    "excerpt": "Build a Customer 360 Data Platform on AWS for personalized financial services, integrating real-time data, analytics, and compliance with GDPR and CCPA. Learn implementation steps, features, scalability strategies, and security practices for 2025.",
+    "contentFile": "customer-360-data-platform.html",
+    "tags": ["Customer 360", "AWS", "Kafka", "Snowflake", "FastAPI", "Streamlit", "personalization", "compliance", "financial services"],
+    "image": "/images/ai.svg"
+  },
+
+  {
     "id": "high-frequency-trading-with-AWS-Lambda",
     "title": "High-Frequency Trading with AWS Lambda: The Ultimate Guide for 2025",
     "authorName": "ChatWhole",

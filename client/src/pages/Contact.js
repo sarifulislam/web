@@ -5,6 +5,7 @@ import NavBar from '../components/Navbar/NavBar';
 import { useDocTitle } from '../components/CustomHook';
 import { app } from '../firebaseConfig';
 import { Helmet } from 'react-helmet-async';
+import Seo from '../components/Seo';
 import contact from '../data/contact.json';
 import { motion } from 'framer-motion';
 import chatwholeLogo from '../images/chatwhole.jpg';
@@ -188,20 +189,52 @@ const Contact = () => {
     tap: { scale: 0.95 }
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact Us - ChatWhole",
+    "url": "https://chatwhole.com/contact",
+    "description": "Get in touch with ChatWhole for expert data engineering and data science services and solutions.",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://chatwhole.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact Us",
+          "item": "https://chatwhole.com/contact"
+        }
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "ChatWhole",
+      "url": "https://chatwhole.com",
+      "logo": "https://chatwhole.com/logo192.jpg",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91 98004 35692",
+        "contactType": "customer service",
+        "email": "appchatwhole@gmail.com",
+        "areaServed": "IN"
+      }
+    }
+  };
+
   return (
     <>
-      <Helmet>
-        <title>Contact Us - ChatWhole</title>
-        <meta name="description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
-        <link rel="canonical" href="https://chatwhole.com/contact" />
-        <meta property="og:title" content="Contact Us - ChatWhole" />
-        <meta property="og:description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
-        <meta property="og:url" content="https://chatwhole.com/contact" />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Us - ChatWhole" />
-        <meta name="twitter:description" content="Get in touch with ChatWhole for expert data engineering and data science services." />
-      </Helmet>
+      <Seo
+        title="Contact Us - ChatWhole"
+        description="Get in touch with ChatWhole for expert data engineering and data science services."
+        url="https://chatwhole.com/contact"
+        structuredData={structuredData}
+      />
       <NavBar />
       <motion.div
         variants={containerVariants}
@@ -367,17 +400,17 @@ const Contact = () => {
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
               <div className="md:col-span-2 mt-6">
-              <motion.button
-                type="submit"
-                id="submitBtn"
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                className="w-full p-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 z-20"
-                aria-label="Submit contact form"
-              >
-                Send Message
-              </motion.button>
+                <motion.button
+                  type="submit"
+                  id="submitBtn"
+                  variants={buttonVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="w-full p-4 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/50 transition-all duration-300 z-20"
+                  aria-label="Submit contact form"
+                >
+                  Send Message
+                </motion.button>
               </div>
             </div>
           </motion.form>
